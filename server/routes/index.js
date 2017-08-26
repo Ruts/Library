@@ -1,5 +1,5 @@
-const user = require('../controllers/user');
-const book = require('..controllers/book');
+const user = require('../controllers/userControllers');
+const book = require('..controllers/bookControllers');
 
 const router = (app) => {
   app.post('api/user/', user.create);

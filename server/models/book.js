@@ -7,7 +7,6 @@ const bookSchema = new Schema({
   'author': String,
   'synopsis': String,
   'borrowed': Boolean,
-  'userID': Number,
   'dateOut': Date,
   'dateIn': Date,
 })
