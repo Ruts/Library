@@ -11,10 +11,12 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "react-scripts": "1.0.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"node main.js\"",
+    "server": "node main.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

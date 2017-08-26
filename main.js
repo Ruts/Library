@@ -13,7 +13,7 @@ app.use(cors());
 router(app);
 
 app.listen('8080', () => {
-  console.console.log('Im listenign on port 8080');
+  console.log('Im listening on port 8080');
 });
 
 module.exports = app;

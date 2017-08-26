@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-const User = {
+const userController = {
   create: (req, res) => {
     const newUser = new User();
 
@@ -10,7 +10,7 @@ const User = {
     newUser.password = req.body.password;
     newUser.role = req.body.role;
 
-    newUser.save(() => {
+    newUser.save((err) => {
       if (err){
         return res.status(500).send(err);
       }
@@ -33,4 +33,4 @@ const User = {
   },
 }
 
-module.exports = User;
+module.exports = userController;
