@@ -23,6 +23,7 @@ const bookControllers = {
   },
 
   read: (req, res) => {
+    console.log("Im here read");
     Book.find({}, (err, book) => {
       if (err){
         return res.status(404).send(err);
@@ -32,7 +33,33 @@ const bookControllers = {
   },
 
   update: (req, res) => {
+    console.log("Im here update");
+    Book.findOne({_id: req.params.id}, (err, book) => {
+      if (err){
+        return res.status(500).send(err);
+      }
 
+      console.log("book before is ", book);
+      book.bookID = req.body.bookID;
+      book.title = req.body.title;
+      book.author = req.body.author;
+      book.synopsis = req.body.synopsis;
+      book.borrowed = req.body.borrowed;
+      book.dateOut = req.body.dateOut;
+      book.dateIn = req.body.dateIn;
+
+      console.log("book after is ", book);
+      book.save((err) => {
+        if (err){
+          return res.status(500).send(err);
+        }
+        return res.status(200).send({
+          message: "Successfully Updated book",
+          book,
+          body: req.body,
+        });
+      });
+    });
   },
 
   delete: (req, res) => {
